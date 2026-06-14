@@ -20,11 +20,29 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "breakfast", "high-protein", "kid-friendly", "no-cook", "quick", "under-15", "vegetarian"],
     ingredients: ["berries", "chia", "extract", "flaxseed", "fresh", "frozen", "granola", "greek", "ground", "honey", "maple", "plain", "seeds", "syrup", "vanilla", "yogurt"]
   },
+  'lemon-blueberry-overnight-oats-simple': {
+    name: 'Lemon Blueberry Overnight Oats (Simple)',
+    category: 'breakfast',
+    tags: ["batch-friendly", "breakfast", "high-fiber", "high-protein", "kid-friendly", "no-cook", "nutritionist", "quick", "under-15", "vegetarian"],
+    ingredients: ["almond", "blueberries", "chia", "cinnamon", "extract", "greek", "lemon", "milk", "oats", "pinch", "plain", "rolled", "seeds", "unsweetened", "vanilla", "yogurt", "zest"]
+  },
+  'lemon-blueberry-overnight-oats': {
+    name: 'Lemon Blueberry Cheesecake Overnight Oats',
+    category: 'breakfast',
+    tags: ["batch-friendly", "breakfast", "high-fiber", "high-protein", "kid-friendly", "no-cook", "nutritionist", "quick", "under-15", "vegetarian"],
+    ingredients: ["almond", "blueberries", "chia", "cinnamon", "extract", "greek", "lemon", "milk", "oats", "pinch", "plain", "powder", "protein", "rolled", "scoop", "seeds", "unsweetened", "vanilla", "yogurt", "zest"]
+  },
   'oatmeal-sprinkles': {
     name: 'Oatmeal with Superhero Sprinkles',
     category: 'breakfast',
     tags: ["batch-friendly", "breakfast", "customizable", "kid-friendly", "quick", "under-15", "vegetarian"],
     ingredients: ["almond", "butter", "chia", "chips", "chocolate", "chopped", "cinnamon", "coconut", "colorful", "flaxseed", "ground", "hemp", "honey", "maple", "milk", "mini", "nuts", "oats", "peanut", "pinch", "rolled", "salt", "seeds", "shredded", "sprinkles", "syrup"]
+  },
+  'southwest-turkey-breakfast-wrap': {
+    name: 'Southwest Turkey Breakfast Wrap',
+    category: 'breakfast',
+    tags: ["batch-friendly", "breakfast", "high-fiber", "high-protein", "kid-friendly", "nutritionist", "quick", "under-15"],
+    ingredients: ["arge", "avocado", "breast", "cumin", "egg", "eggs", "garlic", "handful", "paprika", "pinch", "powder", "salsa", "smoked", "spinach", "tortilla", "turkey", "wheat", "whites", "whole"]
   },
   'broccoli-pesto-pasta': {
     name: 'Broccoli Pesto Pasta',
@@ -37,6 +55,12 @@ const RECIPE_TAGS = {
     category: 'dinner',
     tags: ["batch-friendly", "dinner", "high-fiber", "kid-friendly", "over-30", "vegetarian"],
     ingredients: ["allpurpose", "black", "breadcrumbs", "butter", "butternut", "carrots", "cauliflower", "cheddar", "cheese", "crackers", "cream", "crushed", "dijon", "elbow", "florets", "flour", "fontina", "garlic", "gruyre", "macaroni", "melted", "milk", "mustard", "paprika", "pepper", "powder", "salt", "sharp", "shredded", "squash", "water"]
+  },
+  'lemon-parmesan-chicken-risotto': {
+    name: 'Lemon Parmesan Chicken Risotto',
+    category: 'dinner',
+    tags: ["batch-friendly", "dinner", "high-protein", "kid-friendly", "nutritionist", "over-30"],
+    ingredients: ["arborio", "boneless", "breast", "broth", "cheese", "chicken", "fresh", "frozen", "garlic", "grated", "italian", "juice", "lemon", "lowsodium", "oil", "olive", "onion", "parmesan", "parsley", "peas", "pepper", "rice", "salt", "seasoning", "shallot", "skinless", "small", "zest"]
   },
   'lentil-spinach-curry': {
     name: 'Lentil & Spinach Curry',
@@ -56,17 +80,71 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "dinner", "gluten-free", "high-protein", "omega-3", "over-30"],
     ingredients: ["arge", "avocado", "black", "broccoli", "broth", "emon", "fillets", "florets", "garlic", "greek", "lowsodium", "oil", "olive", "optional", "paprika", "pepper", "potato", "powder", "quinoa", "salmon", "salt", "seeds", "sesame", "sweet", "tahini", "water", "yogurt"]
   },
+  'sun-dried-tomato-chicken-pasta': {
+    name: 'Creamy Sun-Dried Tomato Chicken Pasta',
+    category: 'dinner',
+    tags: ["batch-friendly", "dinner", "high-protein", "kid-friendly", "nutritionist", "under-30"],
+    ingredients: ["baby", "boneless", "breast", "cheese", "chicken", "cooking", "cream", "garlic", "grated", "italian", "light", "oil", "olive", "parmesan", "pasta", "penne", "pepper", "rotini", "salt", "seasoning", "skinless", "spinach", "sundried", "tomatoes"]
+  },
+  'sweet-chili-chicken-rice-bowls': {
+    name: 'Sweet Chili Chicken Rice Bowls',
+    category: 'dinner',
+    tags: ["batch-friendly", "dinner", "high-protein", "kid-friendly", "nutritionist", "under-30"],
+    ingredients: ["bell", "breast", "broccoli", "carrot", "chicken", "chili", "florets", "garlic", "ginger", "grated", "jasmine", "oil", "olive", "onions", "pepper", "reen", "rice", "sauce", "sweet", "vinegar"]
+  },
+  'chicken-caesar-pasta-salad': {
+    name: 'Chicken Caesar Pasta Salad',
+    category: 'lunch',
+    tags: ["batch-friendly", "high-protein", "kid-friendly", "lunch", "nutritionist", "under-30"],
+    ingredients: ["breast", "caesar", "cheese", "chicken", "chopped", "cracked", "cucumber", "dressing", "fresh", "grated", "lettuce", "light", "oil", "olive", "parmesan", "pasta", "pepper", "romaine", "rotini"]
+  },
   'chicken-veggie-wrap': {
     name: 'Chicken & Veggie Wrap',
     category: 'lunch',
     tags: ["batch-friendly", "high-fiber", "high-protein", "lunch", "under-30"],
     ingredients: ["avocado", "baby", "bagel", "bell", "black", "boneless", "breast", "carrots", "chicken", "everything", "garlic", "greek", "greens", "hemp", "highfiber", "hummus", "mixed", "oil", "olive", "onion", "optional", "pepper", "peppers", "powder", "ripe", "salt", "seasoning", "seeds", "shredded", "skinless", "sliced", "spinach", "thinly", "tortillas", "wheat", "whole", "yogurt"]
   },
+  'greek-chicken-power-bowl': {
+    name: 'Greek Chicken Power Bowl',
+    category: 'lunch',
+    tags: ["batch-friendly", "gluten-free", "high-fiber", "high-protein", "lunch", "nutritionist", "under-30"],
+    ingredients: ["arlic", "breast", "cheese", "chicken", "clove", "cooked", "cucumber", "diced", "dried", "feta", "fresh", "garlic", "greek", "juice", "lemon", "oil", "olive", "oregano", "parsley", "pepper", "pinch", "plain", "powder", "quinoa", "salt", "yogurt"]
+  },
+  'turkey-club-wrap-honey-dijon': {
+    name: 'Turkey Club Wrap with Honey Dijon Slaw',
+    category: 'lunch',
+    tags: ["batch-friendly", "high-fiber", "high-protein", "kid-friendly", "lunch", "nutritionist", "under-30"],
+    ingredients: ["apple", "arge", "breast", "cabbage", "chicken", "cider", "cucumber", "dijon", "greek", "honey", "leaves", "lettuce", "mustard", "oil", "olive", "shredded", "slices", "tomato", "tortilla", "turkey", "vinegar", "wheat", "whole", "yogurt"]
+  },
   'strawberry-banana-smoothie': {
     name: 'Strawberry Banana Smoothie',
     category: 'shakes',
     tags: ["batch-friendly", "kid-friendly", "quick", "refreshing", "shakes", "under-15", "vegetarian"],
     ingredients: ["banana", "chia", "cubes", "extract", "flaxseed", "frozen", "greek", "ground", "honey", "maple", "milk", "plain", "ripe", "seeds", "strawberries", "syrup", "vanilla", "yogurt"]
+  },
+  'banana-peanut-butter': {
+    name: 'Banana with Peanut Butter',
+    category: 'snacks',
+    tags: ["batch-friendly", "kid-friendly", "no-cook", "nutritionist", "quick", "snacks", "under-15", "vegan", "vegetarian"],
+    ingredients: ["banana", "butter", "medium", "natural", "peanut"]
+  },
+  'chocolate-chip-cookie-milk': {
+    name: 'Chocolate Chip Cookie & Milk',
+    category: 'snacks',
+    tags: ["batch-friendly", "kid-friendly", "no-cook", "nutritionist", "quick", "snacks", "under-15", "vegetarian"],
+    ingredients: ["bakerystyle", "chip", "chocolate", "cookie", "milk"]
+  },
+  'chocolate-strawberry-yogurt-bowl': {
+    name: 'Chocolate Strawberry Greek Yogurt Bowl',
+    category: 'snacks',
+    tags: ["batch-friendly", "high-protein", "kid-friendly", "no-cook", "nutritionist", "quick", "snacks", "under-15", "vegetarian"],
+    ingredients: ["chips", "chocolate", "cocoa", "greek", "honey", "maple", "mini", "plain", "powder", "strawberries", "syrup", "yogurt"]
+  },
+  'cookie-protein-balls': {
+    name: 'Chocolate Chip Cookie Protein Balls',
+    category: 'snacks',
+    tags: ["batch-friendly", "high-protein", "kid-friendly", "no-cook", "nutritionist", "snacks", "under-30", "vegetarian"],
+    ingredients: ["butter", "chips", "chocolate", "extract", "greek", "honey", "mini", "oats", "peanut", "plain", "powdered", "rolled", "vanilla", "water", "yogurt"]
   },
   'edamame-hummus-cups': {
     name: 'Edamame Hummus Cups',
@@ -95,6 +173,7 @@ const ALL_TAGS = [
   "lunch",
   "no-cook",
   "nut-free",
+  "nutritionist",
   "omega-3",
   "over-30",
   "quick",
@@ -128,6 +207,7 @@ const TAG_LABELS = {
   "healthy": "💚 Healthy",
   "omega-3": "🐟 Omega-3",
   "batch-friendly": "📦 Batch Friendly",
+  "nutritionist": "🩺 Nutritionist Approved",
   "under-15": "⚡ Under 15 min",
   "under-30": "⏱️ 16-30 min",
   "over-30": "🍳 30+ min",

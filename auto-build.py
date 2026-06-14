@@ -89,6 +89,7 @@ TAG_LABELS = {
     'healthy': '💚 Healthy',
     'omega-3': '🐟 Omega-3',
     'batch-friendly': '📦 Batch Friendly',
+    'nutritionist': '🩺 Nutritionist Approved',
     'under-15': '⚡ Under 15 min',
     'under-30': '⏱️ 16-30 min',
     'over-30': '🍳 30+ min',
@@ -116,6 +117,7 @@ DIETARY_TAG_MAP = {
     'refreshing': 'refreshing',
     'fun': 'fun',
     'healthy': 'healthy',
+    'nutritionist': 'nutritionist',
 }
 
 
