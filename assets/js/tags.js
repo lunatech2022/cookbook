@@ -85,7 +85,7 @@ const TAG_LABELS = {
   'healthy': '💚 Healthy',
   'omega3': '🐟 Omega-3',
   'under-15': '⚡ Under 15 min',
-  'under-30': '⏱️ Under 30 min',
+  'under-30': '⏱️ 16-30 min',
   'over-30': '🍳 30+ min'
 };
 

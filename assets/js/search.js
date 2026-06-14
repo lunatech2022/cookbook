@@ -5,6 +5,19 @@
   let suggestionsBox = null;
   let currentFocus = -1;
 
+  // Get correct path prefix based on current page location
+  function getBasePath() {
+    const path = window.location.pathname;
+    // If we're in a subfolder (like /breakfast/ or /breakfast/recipe.html)
+    // we need to go up one level to reach search.html
+    if (path.includes('/breakfast/') || path.includes('/lunch/') || 
+        path.includes('/dinner/') || path.includes('/snacks/') || 
+        path.includes('/shakes/')) {
+      return '../';
+    }
+    return '';
+  }
+
   function initSearch() {
     // Find or create search container
     searchContainer = document.querySelector('.search-container');
@@ -54,13 +67,15 @@
         if (suggestion.type === 'tag') {
           div.innerHTML = `<span class="suggestion-tag">${suggestion.label}</span>`;
           div.addEventListener('click', function() {
-            window.location.href = `search.html?tag=${encodeURIComponent(suggestion.value)}`;
+            const basePath = getBasePath();
+            window.location.href = `${basePath}search.html?tag=${encodeURIComponent(suggestion.value)}`;
           });
         } else {
           div.innerHTML = `<span class="suggestion-recipe">🍽️ ${suggestion.label}</span>`;
           div.addEventListener('click', function() {
             const recipe = RECIPE_TAGS[suggestion.value];
-            const path = `../${recipe.category}/${suggestion.value}.html`;
+            const basePath = getBasePath();
+            const path = `${basePath}${recipe.category}/${suggestion.value}.html`;
             window.location.href = path;
           });
         }
@@ -87,7 +102,8 @@
           // Search with text
           const query = searchInput.value.trim();
           if (query) {
-            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            const basePath = getBasePath();
+            window.location.href = `${basePath}search.html?q=${encodeURIComponent(query)}`;
           }
         }
       } else if (e.key === 'Escape') {
@@ -183,6 +199,18 @@
       nutritionGrid.after(tagSection);
     }
   }
+
+  // Handle tag badge clicks (event delegation)
+  document.addEventListener('click', function(e) {
+    const badge = e.target.closest('.tag-badge');
+    if (!badge || badge.classList.contains('no-click')) return;
+    
+    const tag = badge.getAttribute('data-tag');
+    if (tag) {
+      const basePath = getBasePath();
+      window.location.href = `${basePath}search.html?tag=${encodeURIComponent(tag)}`;
+    }
+  });
 
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {

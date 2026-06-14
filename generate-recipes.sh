@@ -1,31 +1,85 @@
 #!/bin/bash
 
-# Recipe data: slug|category|title|time|calories|protein|fiber|carbs|image|description
-recipes=(
-  "berry-chia-oatmeal|Breakfast|Berry Chia Oatmeal|10 min|~380|14g|12g|55g|berry-chia-oatmeal.jpg|Warm, fiber-packed oatmeal with fresh berries and nut butter"
-  "greek-yogurt-parfait|Breakfast|Greek Yogurt Parfait|5 min|~320|20g|12g|28g|greek-yogurt-parfait.jpg|Creamy, high-protein parfait with chia and berries"
-  "french-toast-sticks|Breakfast|French Toast Sticks|15 min|~350|20g|4g|40g|french-toast-sticks.jpg|Kid-friendly dipping breakfast with yogurt dip"
-  "strawberry-banana-smoothie|Breakfast|Strawberry Banana Smoothie|5 min|~280|18g|6g|35g|strawberry-banana-smoothie.jpg|Refreshing smoothie that packs protein and fiber"
-  "oatmeal-sprinkles|Breakfast|Oatmeal with Superhero Sprinkles|10 min|~300|15g|8g|45g|oatmeal-sprinkles.jpg|Kids love adding their own superfood toppings"
-  "chicken-veggie-wrap|Lunch|Chicken & Veggie Wrap|15 min|~450|35g|8g|35g|chicken-veggie-wrap.jpg|Colorful, protein-packed wrap"
-  "salmon-quinoa-bowl|Dinner|Salmon Quinoa Bowl|30 min|~520|38g|8g|35g|salmon-quinoa-bowl.jpg|Protein powerhouse with omega-3s"
-  "lentil-spinach-curry|Dinner|Lentil & Spinach Curry|35 min|~420|18g|15g|50g|lentil-spinach-curry.jpg|Hearty plant-based dinner"
-  "edamame-hummus-cups|Snack|Edamame Hummus Cups|5 min|~200|10g|6g|18g|edamame-hummus-cups.jpg|Crunchy, savory snack cups"
-)
+# Generate recipe HTML pages from markdown files
 
-for recipe in "${recipes[@]}"; do
-  IFS='|' read -r slug category title time calories protein fiber carbs image description <<< "$recipe"
-  
-  folder=$(echo "$category" | tr '[:upper:]' '[:lower:]')
-  
-  cat > "$folder/$slug.html" << EOF
+RECIPES_DIR="/home/openclaw/.openclaw/workspace/recipes"
+SITE_DIR="/home/openclaw/.openclaw/workspace/cookbook-v3"
+
+# Function to extract frontmatter value
+get_fm() {
+    local file="$1"
+    local key="$2"
+    grep "^${key}:" "$file" | sed "s/^${key}: //" | tr -d '"'
+}
+
+# Function to extract section content
+get_section() {
+    local file="$1"
+    local section="$2"
+    awk -v section="$section" '
+        /^## / { current=$0 }
+        current ~ section && /^[-*] / { print $0 }
+        current ~ section && /^[0-9]\./ { print $0 }
+    ' "$file" | sed 's/^[-*] //'
+}
+
+# Generate HTML for a recipe
+generate_recipe() {
+    local md_file="$1"
+    local category="$2"
+    local recipe_id="$3"
+    
+    local title=$(get_fm "$md_file" "title")
+    local total_time=$(get_fm "$md_file" "total_time")
+    local servings=$(get_fm "$md_file" "servings")
+    
+    # Extract nutrition
+    local calories=$(grep "Calories:" "$md_file" | sed 's/.*Calories: ~\?//' | tr -d ' ')
+    local protein=$(grep "Protein:" "$md_file" | sed 's/.*Protein: //')
+    local fiber=$(grep "Fiber:" "$md_file" | sed 's/.*Fiber: //')
+    local carbs=$(grep "Carbs:" "$md_file" | sed 's/.*Carbs: //' | sed 's/ (.*//')
+    
+    # Extract sections
+    local ingredients=$(get_section "$md_file" "Ingredients")
+    local instructions=$(get_section "$md_file" "Instructions")
+    local kid_adapt=$(get_section "$md_file" "Kid Adaptation")
+    local batch_cook=$(get_section "$md_file" "Batch Cooking")
+    
+    # Build ingredients HTML
+    local ingredients_html=""
+    while IFS= read -r line; do
+        [ -n "$line" ] && ingredients_html="${ingredients_html}<li>${line}</li>\n"
+    done <<< "$ingredients"
+    
+    # Build instructions HTML
+    local instructions_html=""
+    while IFS= read -r line; do
+        [ -n "$line" ] && instructions_html="${instructions_html}<li>${line}</li>\n"
+    done <<< "$instructions"
+    
+    # Build kid adaptation HTML
+    local kid_html=""
+    while IFS= read -r line; do
+        [ -n "$line" ] && kid_html="${kid_html}<li>${line}</li>\n"
+    done <<< "$kid_adapt"
+    
+    # Build batch cooking HTML
+    local batch_html=""
+    while IFS= read -r line; do
+        [ -n "$line" ] && batch_html="${batch_html}<li>${line}</li>\n"
+    done <<< "$batch_cook"
+    
+    # Capitalize category
+    local category_cap="${category^}"
+    
+    cat > "${SITE_DIR}/${category}/${recipe_id}.html" << EOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$title | Family Cookbook</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <title>${title} | Family Cookbook</title>
+  <link rel="stylesheet" href="../assets/css/style.css?v=4">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -41,7 +95,7 @@ for recipe in "${recipes[@]}"; do
           <div class="dropdown-content">
             <a href="../breakfast/index.html">All Breakfast</a>
             <a href="../breakfast/quick.html">⚡ Under 15 min</a>
-            <a href="../breakfast/medium.html">⏱️ Under 30 min</a>
+            <a href="../breakfast/medium.html">⏱️ 16-30 min</a>
             <a href="../breakfast/longer.html">🍳 Longer</a>
           </div>
         </div>
@@ -50,7 +104,7 @@ for recipe in "${recipes[@]}"; do
           <div class="dropdown-content">
             <a href="../lunch/index.html">All Lunch</a>
             <a href="../lunch/quick.html">⚡ Under 15 min</a>
-            <a href="../lunch/medium.html">⏱️ Under 30 min</a>
+            <a href="../lunch/medium.html">⏱️ 16-30 min</a>
             <a href="../lunch/longer.html">🍳 Longer</a>
           </div>
         </div>
@@ -59,7 +113,7 @@ for recipe in "${recipes[@]}"; do
           <div class="dropdown-content">
             <a href="../dinner/index.html">All Dinner</a>
             <a href="../dinner/quick.html">⚡ Under 15 min</a>
-            <a href="../dinner/medium.html">⏱️ Under 30 min</a>
+            <a href="../dinner/medium.html">⏱️ 16-30 min</a>
             <a href="../dinner/longer.html">🍳 Longer</a>
           </div>
         </div>
@@ -68,8 +122,17 @@ for recipe in "${recipes[@]}"; do
           <div class="dropdown-content">
             <a href="../snacks/index.html">All Snacks</a>
             <a href="../snacks/quick.html">⚡ Under 15 min</a>
-            <a href="../snacks/medium.html">⏱️ Under 30 min</a>
+            <a href="../snacks/medium.html">⏱️ 16-30 min</a>
             <a href="../snacks/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥤 Shakes ▼</button>
+          <div class="dropdown-content">
+            <a href="../shakes/index.html">All Shakes</a>
+            <a href="../shakes/quick.html">⚡ Under 15 min</a>
+            <a href="../shakes/medium.html">⏱️ 16-30 min</a>
+            <a href="../shakes/longer.html">🍳 Longer</a>
           </div>
         </div>
       </nav>
@@ -77,64 +140,72 @@ for recipe in "${recipes[@]}"; do
   </header>
 
   <div class="recipe-hero">
-    <img src="../assets/images/$image" alt="$title">
+    <img src="../assets/images/${recipe_id}.jpg" alt="${title}">
     <div class="recipe-hero-overlay">
-      <h1>$title</h1>
+      <h1>${title}</h1>
       <div class="recipe-hero-meta">
-        <span>⏱️ $time</span>
-        <span>📂 $category</span>
+        <span>⏱️ ${total_time}</span>
+        <span>📂 ${category_cap}</span>
+        <span>🍽️ ${servings} serving$([ "$servings" != "1" ] && echo "s")</span>
       </div>
     </div>
   </div>
 
   <main class="recipe-page-body">
-    <p class="recipe-description">$description</p>
-
     <div class="nutrition-grid">
-      <div class="nutrition-item"><div class="value">$calories</div><div class="label">Calories</div></div>
-      <div class="nutrition-item"><div class="value">$protein</div><div class="label">Protein</div></div>
-      <div class="nutrition-item"><div class="value">$fiber</div><div class="label">Fiber</div></div>
-      <div class="nutrition-item"><div class="value">$carbs</div><div class="label">Carbs</div></div>
+      <div class="nutrition-item"><div class="value">~${calories}</div><div class="label">Calories</div></div>
+      <div class="nutrition-item"><div class="value">${protein}</div><div class="label">Protein</div></div>
+      <div class="nutrition-item"><div class="value">${fiber}</div><div class="label">Fiber</div></div>
+      <div class="nutrition-item"><div class="value">${carbs}</div><div class="label">Carbs</div></div>
     </div>
 
     <div class="recipe-body">
       <h2>Ingredients</h2>
       <ul>
-        <li>Ingredient 1</li>
-        <li>Ingredient 2</li>
-        <li>Ingredient 3</li>
+        ${ingredients_html}
       </ul>
 
       <h2>Instructions</h2>
       <ol>
-        <li>Step 1</li>
-        <li>Step 2</li>
-        <li>Step 3</li>
+        ${instructions_html}
       </ol>
 
       <h2>🧒 Kid Adaptation</h2>
       <ul>
-        <li>Make it fun for kids</li>
-        <li>Let them help with prep</li>
+        ${kid_html}
       </ul>
 
       <h2>📦 Batch Cooking</h2>
       <ul>
-        <li>Make ahead tips</li>
-        <li>Storage instructions</li>
+        ${batch_html}
       </ul>
 
-      <a href="../index.html#$folder" class="back-link">← Back to $category</a>
+      <a href="../${category}/index.html" class="back-link">← Back to ${category_cap}</a>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container"><p>Balanced for protein, fiber & flavor 🌱</p></div>
   </footer>
+  <script src="../assets/js/tags.js?v=4"></script>
+  <script src="../assets/js/search.js?v=4"></script>
+  <script src="../assets/js/nav.js?v=4"></script>
 </body>
 </html>
 EOF
 
-done
+    echo "Generated: ${category}/${recipe_id}.html"
+}
 
-echo "Generated recipe pages"
+# Generate all recipes
+generate_recipe "$RECIPES_DIR/breakfast/berry-chia-oatmeal.md" "breakfast" "berry-chia-oatmeal"
+generate_recipe "$RECIPES_DIR/breakfast/greek-yogurt-parfait.md" "breakfast" "greek-yogurt-parfait"
+generate_recipe "$RECIPES_DIR/breakfast/french-toast-sticks.md" "breakfast" "french-toast-sticks"
+generate_recipe "$RECIPES_DIR/breakfast/oatmeal-sprinkles.md" "breakfast" "oatmeal-sprinkles"
+generate_recipe "$RECIPES_DIR/lunch/chicken-veggie-wrap.md" "lunch" "chicken-veggie-wrap"
+generate_recipe "$RECIPES_DIR/dinner/salmon-quinoa-bowl.md" "dinner" "salmon-quinoa-bowl"
+generate_recipe "$RECIPES_DIR/dinner/lentil-spinach-curry.md" "dinner" "lentil-spinach-curry"
+generate_recipe "$RECIPES_DIR/snacks/edamame-hummus-cups.md" "snacks" "edamame-hummus-cups"
+generate_recipe "$RECIPES_DIR/shakes/strawberry-banana-smoothie.md" "shakes" "strawberry-banana-smoothie"
+
+echo "All recipes generated!"
