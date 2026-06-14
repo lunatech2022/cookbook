@@ -196,7 +196,7 @@ def discover_recipes():
 def build_recipe_card(recipe, relative_path=""):
     """Build a recipe card HTML snippet."""
     img_path = f"{relative_path}assets/images/{recipe['id']}.jpg"
-    html_path = f"{recipe['category']}/{recipe['id']}.html"
+    html_path = f"{relative_path}{recipe['category']}/{recipe['id']}.html"
     s_plural = 's' if recipe['servings'] != '1' else ''
     
     return f"""<a href="{html_path}" class="recipe-card">
