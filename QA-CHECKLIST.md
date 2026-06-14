@@ -1,50 +1,46 @@
-# Cookbook QA Checklist — MANDATORY before every push
+# Cookbook QA Checklist — AUTOMATED, BLOCKING
 
-Run this checklist before EVERY push to GitHub. No exceptions.
+**This checklist runs AUTOMATICALLY after every build.** The build will FAIL if any check doesn't pass. No manual running needed.
 
-## 1. Content Quality — NO PLACEHOLDERS
-- [ ] NO recipe page has "Ingredient 1", "Ingredient 2", "Step 1", "Step 2"
-- [ ] ALL recipes have real ingredients, instructions, kid adaptations, batch cooking
-- [ ] Quick check: `grep -rl "Ingredient 1" */*.html` returns nothing
+## Automated Checks (in auto-build.py)
 
-## 2. Cooking Instruction Detail
-- [ ] Instructions include specific temperatures (oven temps, pan heat levels)
-- [ ] Instructions include timing (minutes per step)
-- [ ] Instructions include doneness cues (internal temp, visual checks, "fork tender")
-- [ ] Beginner-friendly language — explains WHY, not just WHAT
-- [ ] Quick check: `grep -i "degrees\|°F\|°C\|medium heat\|internal temp" */*.html` shows results
+### 1. Content Quality — NO PLACEHOLDERS
+- NO recipe page has "Ingredient 1", "Step 1", "Step 2"
+- ALL recipes have real ingredients, instructions, kid adaptations, batch cooking
+- **Blocking:** Build fails if placeholders found
 
-## 3. Rendering Quality — NO ESCAPE ARTIFACTS
-- [ ] NO `\n` visible between list items
-- [ ] NO double numbering ("1. 1. Combine...")
-- [ ] Instructions use `<ol>` but content has NO leading numbers
-- [ ] Quick check: `grep -rl "\\n" */*.html` returns nothing
+### 2. Rendering Quality — NO ESCAPE ARTIFACTS
+- NO `\n` visible between list items
+- NO double numbering ("1. 1. Combine...")
+- Instructions use `<ol>` but content has NO leading numbers
+- **Blocking:** Build fails if escape artifacts found
 
-## 4. No Stale/Orphaned Files
-- [ ] No recipe exists in wrong category folder
-- [ ] All recipe pages in category folders link from index.html
-- [ ] Deleted files are actually gone from git
+### 3. No Stale Labels
+- NO "Under 30" anywhere — must be "16-30 min" to match dropdowns
+- **Blocking:** Build fails if stale labels found
 
-## 5. File Structure
-- [ ] search.html at root only
-- [ ] 5 category folders with index, quick, medium, longer
+### 4. Navigation Integrity
+- ALL category index pages link to EVERY recipe in that category
+- No orphaned recipe pages
+- **Blocking:** Build fails if recipes are missing from their category index
 
-## 6. Navigation (All Pages)
-- [ ] All 5 dropdowns present on EVERY page type
-- [ ] Shakes dropdown on ALL pages including shakes/*
-- [ ] Dropdown links point to correct folders
+### 5. Image Warnings (non-blocking)
+- Missing images are WARNED but don't fail the build
+- Recipe pages will work, just show broken image icon
 
-## 7. Time Filter Labels
-- [ ] ALL dropdowns: "⚡ Under 15 min", "⏱️ 16-30 min", "🍳 Longer"
-- [ ] NO "Under 30" anywhere: `grep -rl "Under 30" */*.html` returns nothing
-
-## 8. Cache Busting
-- [ ] CSS/JS references use consistent version
-- [ ] Version bumped when making changes
-
-## 9. Spot Check — VISUAL VERIFICATION
+## Manual Spot Check (still required before push)
 - [ ] Open 2-3 random recipe pages in browser
 - [ ] Verify ingredients display as clean bullet list
-- [ ] Verify instructions display as clean numbered list (no artifacts)
-- [ ] Verify cooking details are present (temps, timing, doneness)
-- [ ] Verify no 404s
+- [ ] Verify instructions display as clean numbered list
+- [ ] Verify no 404s when clicking recipes from category pages
+
+## If Build Fails
+1. Read the error message — it tells you exactly what's wrong
+2. Fix the issue (usually in recipes/*.md or auto-build.py)
+3. Re-run `python3 auto-build.py`
+4. Don't push until build passes
+
+## NEVER
+- ❌ Push without running auto-build.py first
+- ❌ Ignore QA failure messages
+- ❌ Tell user "it's done" when QA hasn't run

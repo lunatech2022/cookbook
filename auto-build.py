@@ -723,6 +723,75 @@ def main():
     print("\n" + "=" * 50)
     print(f"Done! Built {len(recipes)} recipes across {len(categories)} categories.")
     print("=" * 50)
+    
+    # Run QA validation - BLOCKING
+    print("\n--- Running QA Validation ---")
+    if not run_qa_checks():
+        print("\n❌ QA FAILED - Fix issues before pushing!")
+        import sys
+        sys.exit(1)
+    print("✅ All QA checks passed!")
+
+def run_qa_checks():
+    """Run QA validation checks. Returns False if any check fails."""
+    passed = True
+    
+    # Check 1: No placeholders
+    result = os.popen('grep -rl "Ingredient 1\\|Step 1" */*.html 2>/dev/null').read().strip()
+    if result:
+        print(f"  ❌ Found placeholders: {result}")
+        passed = False
+    else:
+        print("  ✅ No placeholders")
+    
+    # Check 2: No escape artifacts
+    result = os.popen(r"grep -rl '\\\\n' */*.html 2>/dev/null").read().strip()
+    if result:
+        print(f"  ❌ Found escape artifacts: {result}")
+        passed = False
+    else:
+        print("  ✅ No escape artifacts")
+    
+    # Check 3: No stale "Under 30" labels
+    result = os.popen('grep -rl "Under 30" */*.html 2>/dev/null').read().strip()
+    if result:
+        print(f"  ❌ Found stale 'Under 30' labels: {result}")
+        passed = False
+    else:
+        print("  ✅ No stale labels")
+    
+    # Check 4: All recipe pages are reachable from their category index
+    for cat in ['breakfast', 'lunch', 'dinner', 'snacks', 'shakes']:
+        cat_dir = os.path.join(SITE_DIR, cat)
+        if not os.path.exists(cat_dir):
+            continue
+        index_path = os.path.join(cat_dir, 'index.html')
+        if not os.path.exists(index_path):
+            continue
+        with open(index_path, 'r') as f:
+            index_content = f.read()
+        
+        # Find all recipe HTML files in this category
+        for html_file in glob.glob(os.path.join(cat_dir, '*.html')):
+            if html_file.endswith(('index.html', 'quick.html', 'medium.html', 'longer.html')):
+                continue
+            recipe_name = os.path.basename(html_file)
+            # Check that index links to this recipe
+            if recipe_name not in index_content:
+                print(f"  ❌ Category {cat}/index.html missing link to {recipe_name}")
+                passed = False
+    
+    if passed:
+        print("  ✅ All category pages link to their recipes")
+    
+    # Check 5: Image files exist for recipes
+    for recipe in discover_recipes():
+        img_path = os.path.join(SITE_DIR, 'assets', 'images', f"{recipe['id']}.jpg")
+        if not os.path.exists(img_path):
+            print(f"  ⚠️  Missing image: {recipe['id']}.jpg (recipe will show broken image)")
+            # Don't fail the build for missing images, just warn
+    
+    return passed
 
 if __name__ == "__main__":
     main()
