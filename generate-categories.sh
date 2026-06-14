@@ -1,0 +1,332 @@
+#!/bin/bash
+
+# Generate category pages for each meal type
+
+categories=(
+  "breakfast|🌅 Breakfast|Start the day with protein and fiber"
+  "lunch|🥗 Lunch|Midday meals to keep energy steady"
+  "dinner|🍽️ Dinner|Family dinners everyone will enjoy"
+  "snacks|🥨 Snacks|Healthy bites between meals"
+)
+
+for cat_data in "${categories[@]}"; do
+  IFS='|' read -r folder emoji title subtitle <<< "$cat_data"
+  
+  # Main index page
+  cat > "$folder/index.html" << EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$title | Family Cookbook</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-title">
+        <span class="emoji">🍽️</span>
+        <div><h1>Family Cookbook</h1><span class="subtitle">Healthy & Delicious</span></div>
+      </a>
+      <nav class="main-nav">
+        <div class="dropdown">
+          <button class="dropbtn">🌅 Breakfast ▼</button>
+          <div class="dropdown-content">
+            <a href="../breakfast/index.html">All Breakfast</a>
+            <a href="../breakfast/quick.html">⚡ Under 15 min</a>
+            <a href="../breakfast/medium.html">⏱️ Under 30 min</a>
+            <a href="../breakfast/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥗 Lunch ▼</button>
+          <div class="dropdown-content">
+            <a href="../lunch/index.html">All Lunch</a>
+            <a href="../lunch/quick.html">⚡ Under 15 min</a>
+            <a href="../lunch/medium.html">⏱️ Under 30 min</a>
+            <a href="../lunch/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🍽️ Dinner ▼</button>
+          <div class="dropdown-content">
+            <a href="../dinner/index.html">All Dinner</a>
+            <a href="../dinner/quick.html">⚡ Under 15 min</a>
+            <a href="../dinner/medium.html">⏱️ Under 30 min</a>
+            <a href="../dinner/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥨 Snacks ▼</button>
+          <div class="dropdown-content">
+            <a href="../snacks/index.html">All Snacks</a>
+            <a href="../snacks/quick.html">⚡ Under 15 min</a>
+            <a href="../snacks/medium.html">⏱️ Under 30 min</a>
+            <a href="../snacks/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="category-header">
+      <h2>$emoji $title</h2>
+      <p>$subtitle</p>
+    </div>
+
+    <div class="quick-filters">
+      <div class="time-filters">
+        <a href="quick.html" class="time-filter">⚡ Under 15 min</a>
+        <a href="medium.html" class="time-filter">⏱️ Under 30 min</a>
+        <a href="longer.html" class="time-filter">🍳 Longer</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="recipe-grid">
+        <!-- Recipes will be listed here -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>Balanced for protein, fiber & flavor 🌱</p></div>
+  </footer>
+</body>
+</html>
+EOF
+
+  # Quick page (under 15 min)
+  cat > "$folder/quick.html" << EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$title Under 15 min | Family Cookbook</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-title">
+        <span class="emoji">🍽️</span>
+        <div><h1>Family Cookbook</h1><span class="subtitle">Healthy & Delicious</span></div>
+      </a>
+      <nav class="main-nav">
+        <div class="dropdown">
+          <button class="dropbtn">🌅 Breakfast ▼</button>
+          <div class="dropdown-content">
+            <a href="../breakfast/index.html">All Breakfast</a>
+            <a href="../breakfast/quick.html">⚡ Under 15 min</a>
+            <a href="../breakfast/medium.html">⏱️ Under 30 min</a>
+            <a href="../breakfast/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥗 Lunch ▼</button>
+          <div class="dropdown-content">
+            <a href="../lunch/index.html">All Lunch</a>
+            <a href="../lunch/quick.html">⚡ Under 15 min</a>
+            <a href="../lunch/medium.html">⏱️ Under 30 min</a>
+            <a href="../lunch/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🍽️ Dinner ▼</button>
+          <div class="dropdown-content">
+            <a href="../dinner/index.html">All Dinner</a>
+            <a href="../dinner/quick.html">⚡ Under 15 min</a>
+            <a href="../dinner/medium.html">⏱️ Under 30 min</a>
+            <a href="../dinner/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥨 Snacks ▼</button>
+          <div class="dropdown-content">
+            <a href="../snacks/index.html">All Snacks</a>
+            <a href="../snacks/quick.html">⚡ Under 15 min</a>
+            <a href="../snacks/medium.html">⏱️ Under 30 min</a>
+            <a href="../snacks/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="category-header">
+      <h2>⚡ $title Under 15 Minutes</h2>
+      <p>Fast and healthy</p>
+    </div>
+    <div class="container">
+      <div class="recipe-grid"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>Balanced for protein, fiber & flavor 🌱</p></div>
+  </footer>
+</body>
+</html>
+EOF
+
+  # Medium page (under 30 min)
+  cat > "$folder/medium.html" << EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$title Under 30 min | Family Cookbook</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-title">
+        <span class="emoji">🍽️</span>
+        <div><h1>Family Cookbook</h1><span class="subtitle">Healthy & Delicious</span></div>
+      </a>
+      <nav class="main-nav">
+        <div class="dropdown">
+          <button class="dropbtn">🌅 Breakfast ▼</button>
+          <div class="dropdown-content">
+            <a href="../breakfast/index.html">All Breakfast</a>
+            <a href="../breakfast/quick.html">⚡ Under 15 min</a>
+            <a href="../breakfast/medium.html">⏱️ Under 30 min</a>
+            <a href="../breakfast/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥗 Lunch ▼</button>
+          <div class="dropdown-content">
+            <a href="../lunch/index.html">All Lunch</a>
+            <a href="../lunch/quick.html">⚡ Under 15 min</a>
+            <a href="../lunch/medium.html">⏱️ Under 30 min</a>
+            <a href="../lunch/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🍽️ Dinner ▼</button>
+          <div class="dropdown-content">
+            <a href="../dinner/index.html">All Dinner</a>
+            <a href="../dinner/quick.html">⚡ Under 15 min</a>
+            <a href="../dinner/medium.html">⏱️ Under 30 min</a>
+            <a href="../dinner/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥨 Snacks ▼</button>
+          <div class="dropdown-content">
+            <a href="../snacks/index.html">All Snacks</a>
+            <a href="../snacks/quick.html">⚡ Under 15 min</a>
+            <a href="../snacks/medium.html">⏱️ Under 30 min</a>
+            <a href="../snacks/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="category-header">
+      <h2>⏱️ $title Under 30 Minutes</h2>
+      <p>Weeknight-friendly</p>
+    </div>
+    <div class="container">
+      <div class="recipe-grid"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>Balanced for protein, fiber & flavor 🌱</p></div>
+  </footer>
+</body>
+</html>
+EOF
+
+  # Longer page (30+ min)
+  cat > "$folder/longer.html" << EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$title 30+ min | Family Cookbook</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-title">
+        <span class="emoji">🍽️</span>
+        <div><h1>Family Cookbook</h1><span class="subtitle">Healthy & Delicious</span></div>
+      </a>
+      <nav class="main-nav">
+        <div class="dropdown">
+          <button class="dropbtn">🌅 Breakfast ▼</button>
+          <div class="dropdown-content">
+            <a href="../breakfast/index.html">All Breakfast</a>
+            <a href="../breakfast/quick.html">⚡ Under 15 min</a>
+            <a href="../breakfast/medium.html">⏱️ Under 30 min</a>
+            <a href="../breakfast/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥗 Lunch ▼</button>
+          <div class="dropdown-content">
+            <a href="../lunch/index.html">All Lunch</a>
+            <a href="../lunch/quick.html">⚡ Under 15 min</a>
+            <a href="../lunch/medium.html">⏱️ Under 30 min</a>
+            <a href="../lunch/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🍽️ Dinner ▼</button>
+          <div class="dropdown-content">
+            <a href="../dinner/index.html">All Dinner</a>
+            <a href="../dinner/quick.html">⚡ Under 15 min</a>
+            <a href="../dinner/medium.html">⏱️ Under 30 min</a>
+            <a href="../dinner/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">🥨 Snacks ▼</button>
+          <div class="dropdown-content">
+            <a href="../snacks/index.html">All Snacks</a>
+            <a href="../snacks/quick.html">⚡ Under 15 min</a>
+            <a href="../snacks/medium.html">⏱️ Under 30 min</a>
+            <a href="../snacks/longer.html">🍳 Longer</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="category-header">
+      <h2>🍳 $title 30+ Minutes</h2>
+      <p>Weekend cooking projects</p>
+    </div>
+    <div class="container">
+      <div class="recipe-grid"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>Balanced for protein, fiber & flavor 🌱</p></div>
+  </footer>
+</body>
+</html>
+EOF
+
+done
+
+echo "Generated category pages"
