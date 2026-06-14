@@ -128,12 +128,6 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "kid-friendly", "no-cook", "nutritionist", "quick", "snacks", "under-15", "vegan", "vegetarian"],
     ingredients: ["banana", "butter", "medium", "natural", "peanut"]
   },
-  'chocolate-chip-cookie-milk': {
-    name: 'Chocolate Chip Cookie & Milk',
-    category: 'snacks',
-    tags: ["batch-friendly", "kid-friendly", "no-cook", "nutritionist", "quick", "snacks", "under-15", "vegetarian"],
-    ingredients: ["bakerystyle", "chip", "chocolate", "cookie", "milk"]
-  },
   'chocolate-strawberry-yogurt-bowl': {
     name: 'Chocolate Strawberry Greek Yogurt Bowl',
     category: 'snacks',
