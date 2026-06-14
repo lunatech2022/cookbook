@@ -106,9 +106,13 @@ body {
   gap: 6px;
 }
 
-.dropbtn:hover,
+.dropbtn:hover {
+  background: var(--color-primary-light);
+}
+
 .dropbtn.active {
   background: var(--color-primary-light);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .dropdown-content {
@@ -124,8 +128,6 @@ body {
   overflow: hidden;
   border: 1px solid var(--color-border);
   animation: dropdownSlide 0.2s ease;
-  /* Stay open longer - 0.4s delay before hiding */
-  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 /* Invisible buffer zone so mouse can travel from button to menu */
@@ -143,8 +145,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.dropdown-content.show,
-.dropdown:hover .dropdown-content {
+.dropdown-content.show {
   display: block;
 }
 
