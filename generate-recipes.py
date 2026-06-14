@@ -210,6 +210,7 @@ recipes = [
     ("dinner/salmon-quinoa-bowl.md", "dinner", "salmon-quinoa-bowl"),
     ("dinner/lentil-spinach-curry.md", "dinner", "lentil-spinach-curry"),
     ("snacks/edamame-hummus-cups.md", "snacks", "edamame-hummus-cups"),
+    ("snacks/guacamole.md", "snacks", "guacamole"),
     ("shakes/strawberry-banana-smoothie.md", "shakes", "strawberry-banana-smoothie"),
 ]
 
