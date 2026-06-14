@@ -71,7 +71,8 @@ def extract_section(content, section_name):
     in_section = False
     items = []
     for line in lines:
-        if line.startswith(f'## {section_name}'):
+        # Match headers that contain the section name (handles emoji prefixes)
+        if line.startswith('## ') and section_name in line:
             in_section = True
             continue
         if in_section:
@@ -126,7 +127,7 @@ def generate_recipe(md_path, category, recipe_id):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} | Family Cookbook</title>
-  <link rel="stylesheet" href="../assets/css/style.css?v=5">
+  <link rel="stylesheet" href="../assets/css/style.css?v=6">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -188,9 +189,9 @@ def generate_recipe(md_path, category, recipe_id):
   <footer class="site-footer">
     <div class="container"><p>Balanced for protein, fiber & flavor 🌱</p></div>
   </footer>
-  <script src="../assets/js/tags.js?v=5"></script>
-  <script src="../assets/js/search.js?v=5"></script>
-  <script src="../assets/js/nav.js?v=5"></script>
+  <script src="../assets/js/tags.js?v=6"></script>
+  <script src="../assets/js/search.js?v=6"></script>
+  <script src="../assets/js/nav.js?v=6"></script>
 </body>
 </html>"""
     
