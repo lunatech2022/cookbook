@@ -564,7 +564,7 @@ def generate_quick_filter_pages(recipes):
     """Generate quick/medium/longer filter pages for homepage."""
     filters = [
         ('quick', lambda r: r['total_minutes'] <= 15, '⚡ Quick Recipes', 'Under 15 minutes'),
-        ('medium', lambda r: 16 <= r['total_minutes'] <= 30, '⏱️ Under 30 Minutes', '16-30 minutes'),
+        ('medium', lambda r: 16 <= r['total_minutes'] <= 30, '⏱️ 16-30 Minutes', '16-30 minutes'),
         ('longer', lambda r: r['total_minutes'] > 30, '🍳 Longer Recipes', 'Over 30 minutes'),
     ]
     
@@ -705,7 +705,7 @@ def main():
         # Medium (16-30 min)
         generate_category_page(cat, recipes,
             filter_fn=lambda r, c=cat: r['category'] == c and 16 <= r['total_minutes'] <= 30,
-            page_name="medium", title_suffix=f"⏱️ {cat.capitalize()} Under 30", description="16-30 minutes")
+            page_name="medium", title_suffix=f"⏱️ {cat.capitalize()} 16-30 min", description="16-30 minutes")
         
         # Longer (> 30 min)
         generate_category_page(cat, recipes,
