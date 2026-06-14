@@ -31,13 +31,12 @@ Run this checklist before every push to GitHub.
 - [ ] Tag badges visible on cards
 
 ## Time Filters
-Rule: Quick = under 15 min | Medium = 15-29 min | Longer = 30+ min
-- [ ] breakfast/quick: Greek Yogurt (5), Berry Chia (10), Oatmeal Sprinkles (10)
-- [ ] breakfast/medium: French Toast (15)
-- [ ] lunch/medium: Chicken Wrap (15)
-- [ ] dinner/longer: Salmon (30), Lentil Curry (35)
+Rule: Quick = under 15 min | Medium = 16-30 min | Longer = 30+ min
+- [ ] breakfast/quick: Greek Yogurt (5), Berry Chia (10), Oatmeal Sprinkles (10), French Toast (15)
+- [ ] lunch/quick: Chicken Wrap (15)
 - [ ] snacks/quick: Edamame (5)
 - [ ] shakes/quick: Smoothie (5)
+- [ ] dinner/longer: Salmon (30), Lentil Curry (35)
 - [ ] No duplicates across quick/medium/longer
 
 ## Recipe Pages
