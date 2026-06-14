@@ -280,6 +280,19 @@ SNACKS_RECIPES='<a href="edamame-hummus-cups.html" class="recipe-card">
               <p>Crunchy, savory snack cups with protein and fiber</p>
               <div class="recipe-stats"><div class="stat">🥩 <span class="stat-value">10g</span> protein</div><div class="stat">🌾 <span class="stat-value">6g</span> fiber</div></div>
             </div>
+          </a>
+          <a href="guacamole.html" class="recipe-card">
+            <div class="recipe-card-image">
+              <img src="../assets/images/guacamole.jpg" alt="Classic Guacamole">
+              <span class="recipe-card-badge">Snack</span>
+              <span class="recipe-card-time">⏱️ 10 min</span>
+            </div>
+            <div class="recipe-card-content">
+              <div class="recipe-card-rating"><span class="stars">★★★★★</span><span class="rating-count">(24 reviews)</span></div>
+              <h4>Classic Guacamole</h4>
+              <p>Fresh, creamy guacamole with lime and cilantro</p>
+              <div class="recipe-stats"><div class="stat">🥩 <span class="stat-value">2g</span> protein</div><div class="stat">🌾 <span class="stat-value">6g</span> fiber</div></div>
+            </div>
           </a>'
 
 generate_page "snacks" "🥨 Snacks" "Healthy bites between meals" "$SNACKS_RECIPES" "index" "All Snacks"
