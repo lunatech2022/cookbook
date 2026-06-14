@@ -821,3 +821,66 @@ body {
     font-size: 16px; /* Prevents zoom on iOS */
   }
 }
+
+/* Recipe Comments Section */
+.recipe-comments-section {
+  margin: 32px 0;
+  padding: 28px;
+  background: var(--color-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
+.recipe-comments-section h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.comments-intro {
+  color: var(--color-text-light);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.giscus-wrapper {
+  min-height: 100px;
+}
+
+.comments-fallback {
+  padding: 24px;
+  background: #f5f5f0;
+  border-radius: 12px;
+  border: 1px dashed var(--color-border);
+}
+
+.comments-fallback p {
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.comments-fallback ol {
+  margin: 12px 0 12px 20px;
+  color: var(--color-text-light);
+}
+
+.comments-fallback ol li {
+  margin-bottom: 6px;
+}
+
+.comments-fallback a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.comments-fallback a:hover {
+  color: var(--color-primary-light);
+}
+
+.comments-alt {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-size: 14px;
+}
