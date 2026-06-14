@@ -79,8 +79,9 @@ body {
 /* Navigation with Dropdown - Click to Open */
 .main-nav {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .dropdown {
@@ -91,11 +92,11 @@ body {
 .dropbtn {
   background: var(--color-primary);
   color: white;
-  padding: 12px 18px;
+  padding: 10px 14px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   font-family: var(--font-body);
   transition: background 0.2s;
