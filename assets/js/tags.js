@@ -89,7 +89,7 @@ const RECIPE_TAGS = {
   'sunshine-chicken-sweet-potato-bites': {
     name: 'Sunshine Chicken & Sweet Potato Bites',
     category: 'dinner',
-    tags: ["batch-friendly", "dinner", "high-fiber", "high-protein", "kid-friendly", "over-30"],
+    tags: ["batch-friendly", "dinner", "high-fiber", "high-protein", "kid-friendly", "microbiome-booster", "over-30"],
     ingredients: ["bell", "black", "breast", "chicken", "crumbles", "feta", "flaxseed", "fresh", "garlic", "ground", "honey", "juice", "medium", "oil", "olive", "orange", "paprika", "parsley", "pepper", "potatoes", "powder", "pumpkin", "rosemary", "salt", "seeds", "sweet", "zest"]
   },
   'sweet-chili-chicken-rice-bowls': {
@@ -125,7 +125,7 @@ const RECIPE_TAGS = {
   'orange-creamsicle-power-smoothie': {
     name: 'Orange Creamsicle Power Smoothie',
     category: 'shakes',
-    tags: ["batch-friendly", "high-fiber", "kid-friendly", "no-cook", "quick", "shakes", "under-15", "vegetarian"],
+    tags: ["batch-friendly", "high-fiber", "kid-friendly", "microbiome-booster", "no-cook", "quick", "shakes", "under-15", "vegetarian"],
     ingredients: ["banana", "chicory", "cinnamon", "cubes", "extract", "flaxseed", "frozen", "garnish", "greek", "ground", "hemp", "honey", "juice", "maple", "medium", "milk", "oats", "orange", "plain", "powder", "rolled", "root", "seeds", "slice", "small", "syrup", "vanilla", "yogurt", "zest"]
   },
   'strawberry-banana-smoothie': {
@@ -167,7 +167,7 @@ const RECIPE_TAGS = {
   'superhero-energy-bites': {
     name: 'Superhero" Energy Bites',
     category: 'snacks',
-    tags: ["batch-friendly", "high-fiber", "kid-friendly", "no-cook", "quick", "snacks", "under-15", "vegetarian"],
+    tags: ["batch-friendly", "high-fiber", "kid-friendly", "microbiome-booster", "no-cook", "quick", "snacks", "under-15", "vegetarian"],
     ingredients: ["butter", "chia", "chicory", "chips", "chocolate", "cinnamon", "cocoa", "coconut", "cranberries", "crushed", "dates", "dried", "extra", "flaxseed", "ground", "hemp", "honey", "maple", "mini", "oats", "orange", "pitted", "powder", "raisins", "rolled", "root", "seed", "seeds", "shredded", "sunflower", "syrup", "unsweetened", "zest"]
   }
 };
@@ -183,6 +183,7 @@ const ALL_TAGS = [
   "high-protein",
   "kid-friendly",
   "lunch",
+  "microbiome-booster",
   "no-cook",
   "nut-free",
   "nutritionist",

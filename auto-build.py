@@ -118,6 +118,7 @@ DIETARY_TAG_MAP = {
     'fun': 'fun',
     'healthy': 'healthy',
     'nutritionist': 'nutritionist',
+    'microbiome-booster': 'microbiome-booster',
 }
 
 
