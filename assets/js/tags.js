@@ -8,6 +8,12 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "breakfast", "high-fiber", "kid-friendly", "quick", "under-15", "vegetarian"],
     ingredients: ["almond", "berries", "butter", "chia", "cinnamon", "honey", "maple", "mixed", "oats", "peanut", "pinch", "rolled", "salt", "seeds", "syrup", "water"]
   },
+  'chocolate-orange-power-muffins': {
+    name: 'Chocolate Orange "Hidden Power" Muffins',
+    category: 'breakfast',
+    tags: ["batch-friendly", "breakfast", "high-fiber", "kid-friendly", "under-30", "vegetarian"],
+    ingredients: ["arge", "baking", "banana", "barley", "butter", "chicory", "chips", "chocolate", "cinnamon", "cocoa", "egg", "flaxseed", "flour", "ground", "hemp", "juice", "medium", "melted", "milk", "mini", "oil", "olive", "orange", "powder", "ripe", "root", "salt", "seeds", "soda", "unsweetened", "zest", "zucchini"]
+  },
   'french-toast-sticks': {
     name: 'French Toast Sticks',
     category: 'breakfast',
@@ -86,6 +92,12 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "dinner", "high-protein", "kid-friendly", "nutritionist", "under-30"],
     ingredients: ["baby", "boneless", "breast", "cheese", "chicken", "cooking", "cream", "garlic", "grated", "italian", "light", "oil", "olive", "parmesan", "pasta", "penne", "pepper", "rotini", "salt", "seasoning", "skinless", "spinach", "sundried", "tomatoes"]
   },
+  'sunshine-chicken-sweet-potato-bites': {
+    name: 'Sunshine Chicken & Sweet Potato Bites',
+    category: 'dinner',
+    tags: ["batch-friendly", "dinner", "high-fiber", "high-protein", "kid-friendly", "over-30"],
+    ingredients: ["bell", "black", "breast", "chicken", "crumbles", "feta", "flaxseed", "fresh", "garlic", "ground", "honey", "juice", "medium", "oil", "olive", "orange", "paprika", "parsley", "pepper", "potatoes", "powder", "pumpkin", "rosemary", "salt", "seeds", "sweet", "zest"]
+  },
   'sweet-chili-chicken-rice-bowls': {
     name: 'Sweet Chili Chicken Rice Bowls',
     category: 'dinner',
@@ -110,11 +122,23 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "gluten-free", "high-fiber", "high-protein", "lunch", "nutritionist", "under-30"],
     ingredients: ["arlic", "breast", "cheese", "chicken", "clove", "cooked", "cucumber", "diced", "dried", "feta", "fresh", "garlic", "greek", "juice", "lemon", "oil", "olive", "oregano", "parsley", "pepper", "pinch", "plain", "powder", "quinoa", "salt", "yogurt"]
   },
+  'rainbow-barley-crunch-bowl': {
+    name: 'Rainbow Barley Crunch Bowl',
+    category: 'lunch',
+    tags: ["batch-friendly", "high-fiber", "kid-friendly", "lunch", "over-30", "vegetarian"],
+    ingredients: ["barley", "bell", "black", "broth", "cabbage", "carrot", "cheese", "chickpeas", "crumbles", "cucumber", "edamame", "feta", "flaxseed", "fresh", "garlic", "ground", "juice", "lemon", "lowsodium", "oil", "olive", "orange", "parsley", "pearled", "pepper", "pinch", "powder", "pumpkin", "salt", "seeds", "water", "zest"]
+  },
   'turkey-club-wrap-honey-dijon': {
     name: 'Turkey Club Wrap with Honey Dijon Slaw',
     category: 'lunch',
     tags: ["batch-friendly", "high-fiber", "high-protein", "kid-friendly", "lunch", "nutritionist", "under-30"],
     ingredients: ["apple", "arge", "breast", "cabbage", "chicken", "cider", "cucumber", "dijon", "greek", "honey", "leaves", "lettuce", "mustard", "oil", "olive", "shredded", "slices", "tomato", "tortilla", "turkey", "vinegar", "wheat", "whole", "yogurt"]
+  },
+  'orange-creamsicle-power-smoothie': {
+    name: 'Orange Creamsicle Power Smoothie',
+    category: 'shakes',
+    tags: ["batch-friendly", "high-fiber", "kid-friendly", "no-cook", "quick", "shakes", "under-15", "vegetarian"],
+    ingredients: ["banana", "chicory", "cinnamon", "cubes", "extract", "flaxseed", "frozen", "garnish", "greek", "ground", "hemp", "honey", "juice", "maple", "medium", "milk", "oats", "orange", "plain", "powder", "rolled", "root", "seeds", "slice", "small", "syrup", "vanilla", "yogurt", "zest"]
   },
   'strawberry-banana-smoothie': {
     name: 'Strawberry Banana Smoothie',
@@ -151,6 +175,12 @@ const RECIPE_TAGS = {
     category: 'snacks',
     tags: ["batch-friendly", "gluten-free", "kid-friendly", "no-cook", "quick", "snacks", "under-15", "vegan", "vegetarian"],
     ingredients: ["arge", "avocados", "chopped", "cilantro", "clove", "cumin", "diced", "finely", "fresh", "garlic", "ground", "hass", "jalapeo", "lime", "onion", "ripe", "roma", "salt", "small", "tomato", "white", "yellow"]
+  },
+  'superhero-energy-bites': {
+    name: 'Superhero" Energy Bites',
+    category: 'snacks',
+    tags: ["batch-friendly", "high-fiber", "kid-friendly", "no-cook", "quick", "snacks", "under-15", "vegetarian"],
+    ingredients: ["butter", "chia", "chicory", "chips", "chocolate", "cinnamon", "cocoa", "coconut", "cranberries", "crushed", "dates", "dried", "extra", "flaxseed", "ground", "hemp", "honey", "maple", "mini", "oats", "orange", "pitted", "powder", "raisins", "rolled", "root", "seed", "seeds", "shredded", "sunflower", "syrup", "unsweetened", "zest"]
   }
 };
 
