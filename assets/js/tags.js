@@ -8,12 +8,6 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "breakfast", "high-fiber", "kid-friendly", "quick", "under-15", "vegetarian"],
     ingredients: ["almond", "berries", "butter", "chia", "cinnamon", "honey", "maple", "mixed", "oats", "peanut", "pinch", "rolled", "salt", "seeds", "syrup", "water"]
   },
-  'chocolate-orange-power-muffins': {
-    name: 'Chocolate Orange "Hidden Power" Muffins',
-    category: 'breakfast',
-    tags: ["batch-friendly", "breakfast", "high-fiber", "kid-friendly", "under-30", "vegetarian"],
-    ingredients: ["arge", "baking", "banana", "barley", "butter", "chicory", "chips", "chocolate", "cinnamon", "cocoa", "egg", "flaxseed", "flour", "ground", "hemp", "juice", "medium", "melted", "milk", "mini", "oil", "olive", "orange", "powder", "ripe", "root", "salt", "seeds", "soda", "unsweetened", "zest", "zucchini"]
-  },
   'french-toast-sticks': {
     name: 'French Toast Sticks',
     category: 'breakfast',
@@ -121,12 +115,6 @@ const RECIPE_TAGS = {
     category: 'lunch',
     tags: ["batch-friendly", "gluten-free", "high-fiber", "high-protein", "lunch", "nutritionist", "under-30"],
     ingredients: ["arlic", "breast", "cheese", "chicken", "clove", "cooked", "cucumber", "diced", "dried", "feta", "fresh", "garlic", "greek", "juice", "lemon", "oil", "olive", "oregano", "parsley", "pepper", "pinch", "plain", "powder", "quinoa", "salt", "yogurt"]
-  },
-  'rainbow-barley-crunch-bowl': {
-    name: 'Rainbow Barley Crunch Bowl',
-    category: 'lunch',
-    tags: ["batch-friendly", "high-fiber", "kid-friendly", "lunch", "over-30", "vegetarian"],
-    ingredients: ["barley", "bell", "black", "broth", "cabbage", "carrot", "cheese", "chickpeas", "crumbles", "cucumber", "edamame", "feta", "flaxseed", "fresh", "garlic", "ground", "juice", "lemon", "lowsodium", "oil", "olive", "orange", "parsley", "pearled", "pepper", "pinch", "powder", "pumpkin", "salt", "seeds", "water", "zest"]
   },
   'turkey-club-wrap-honey-dijon': {
     name: 'Turkey Club Wrap with Honey Dijon Slaw',
