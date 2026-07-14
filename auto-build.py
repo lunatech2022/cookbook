@@ -335,10 +335,11 @@ def build_recipe_card(recipe, relative_path=""):
     html_path = f"{relative_path}{recipe['category']}/{recipe['id']}.html"
     s_plural = 's' if recipe['servings'] != '1' else ''
     
+    cat_path = f"{relative_path}{recipe['category']}/index.html"
     return f"""<a href="{html_path}" class="recipe-card">
             <div class="recipe-card-image">
               <img src="{img_path}" alt="{recipe['title']}">
-              <span class="recipe-card-badge">{recipe['category'].capitalize()}</span>
+              <a href="{cat_path}" class="recipe-card-badge">{recipe['category'].capitalize()}</a>
               <span class="recipe-card-time">⏱️ {recipe['total_time']}</span>
             </div>
             <div class="recipe-card-content">
@@ -363,7 +364,7 @@ def generate_recipe_page(recipe):
     
     # Build tags HTML for the recipe page
     tags_html = '\n'.join(
-        f'<span class="tag-badge" data-tag="{tag}">{TAG_LABELS.get(tag, tag)}</span>'
+        f'<a href="../search.html?tag={tag}" class="tag-badge">{TAG_LABELS.get(tag, tag)}</a>'
         for tag in r['tags']
     )
     
@@ -395,7 +396,7 @@ def generate_recipe_page(recipe):
       <h1>{r['title']}</h1>
       <div class="recipe-hero-meta">
         <span>⏱️ {r['total_time']}</span>
-        <span>📂 {category_cap}</span>
+        <a href="../{r['category']}/index.html" class="hero-category-link">📂 {category_cap}</a>
         <span>🍽️ {r['servings']} serving{s_plural}</span>
       </div>
     </div>
@@ -555,7 +556,7 @@ def generate_homepage(recipes):
         sections_html += f"""
     <section class="category-section" id="{cat}">
       <div class="container">
-        <h3>{emoji} {cat.capitalize()}</h3>
+        <h3><a href="{cat}/index.html" class="category-heading-link">{emoji} {cat.capitalize()}</a></h3>
         <div class="recipe-grid">
           {cards}
         </div>
