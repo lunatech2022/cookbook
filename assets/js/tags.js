@@ -38,6 +38,12 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "breakfast", "customizable", "kid-friendly", "quick", "under-15", "vegetarian"],
     ingredients: ["almond", "butter", "chia", "chips", "chocolate", "chopped", "cinnamon", "coconut", "colorful", "flaxseed", "ground", "hemp", "honey", "maple", "milk", "mini", "nuts", "oats", "peanut", "pinch", "rolled", "salt", "seeds", "shredded", "sprinkles", "syrup"]
   },
+  'raspberry-smoothie-bowl': {
+    name: 'Raspberry Smoothie Bowl',
+    category: 'breakfast',
+    tags: ["batch-friendly", "breakfast", "kid-friendly", "no-cook", "quick", "under-15", "vegetarian"],
+    ingredients: ["bananas", "chia", "coconut", "flakes", "frozen", "granola", "greek", "lowfat", "milk", "nonfat", "raspberries", "seeds", "toasted", "yogurt"]
+  },
   'southwest-turkey-breakfast-wrap': {
     name: 'Southwest Turkey Breakfast Wrap',
     category: 'breakfast',
