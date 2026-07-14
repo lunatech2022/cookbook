@@ -146,6 +146,12 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "kid-friendly", "no-cook", "nutritionist", "quick", "snacks", "under-15", "vegan", "vegetarian"],
     ingredients: ["banana", "butter", "medium", "natural", "peanut"]
   },
+  'chocolate-chip-cookie-protein-balls': {
+    name: 'Chocolate Chip Cookie Protein Balls (No Bake)',
+    category: 'snacks',
+    tags: ["batch-friendly", "high-protein", "kid-friendly", "no-cook", "snacks", "under-30", "vegetarian"],
+    ingredients: ["butter", "chips", "chocolate", "extract", "greek", "honey", "mini", "oats", "peanut", "plain", "powdered", "rolled", "vanilla", "water", "yogurt"]
+  },
   'chocolate-strawberry-yogurt-bowl': {
     name: 'Chocolate Strawberry Greek Yogurt Bowl',
     category: 'snacks',
@@ -169,6 +175,12 @@ const RECIPE_TAGS = {
     category: 'snacks',
     tags: ["batch-friendly", "gluten-free", "kid-friendly", "no-cook", "quick", "snacks", "under-15", "vegan", "vegetarian"],
     ingredients: ["arge", "avocados", "chopped", "cilantro", "clove", "cumin", "diced", "finely", "fresh", "garlic", "ground", "hass", "jalapeo", "lime", "onion", "ripe", "roma", "salt", "small", "tomato", "white", "yellow"]
+  },
+  'no-bake-energy-balls': {
+    name: 'No-Bake Energy Balls',
+    category: 'snacks',
+    tags: ["batch-friendly", "kid-friendly", "no-cook", "snacks", "under-30", "vegetarian"],
+    ingredients: ["butter", "chips", "chocolate", "chopped", "coconut", "creamy", "extract", "flaxseed", "ground", "honey", "mini", "natural", "oats", "peanut", "peanuts", "pinch", "rolled", "salt", "shredded", "unsweetened", "vanilla", "whole"]
   },
   'superhero-energy-bites': {
     name: 'Superhero" Energy Bites',
