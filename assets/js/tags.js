@@ -2,6 +2,12 @@
 // Do not edit manually — changes will be overwritten
 
 const RECIPE_TAGS = {
+  'baked-breakfast-puddings': {
+    name: 'Baked Breakfast Puddings',
+    category: 'breakfast',
+    tags: ["batch-friendly", "breakfast", "high-protein", "kid-friendly", "under-30", "vegetarian"],
+    ingredients: ["blueberries", "egg", "extract", "flour", "fresh", "frozen", "greek", "heaped", "honey", "maple", "milk", "oats", "raspberries", "rolled", "selfraising", "squeeze", "syrup", "tbsp", "vanilla", "yoghurt"]
+  },
   'berry-chia-oatmeal': {
     name: 'Berry Chia Oatmeal',
     category: 'breakfast',
