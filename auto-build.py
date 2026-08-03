@@ -12,8 +12,9 @@ import shutil
 import json
 from pathlib import Path
 
-RECIPES_DIR = "/home/openclaw/.openclaw/workspace/recipes"
-SITE_DIR = "/home/openclaw/.openclaw/workspace/cookbook-v3"
+_HERE = os.path.dirname(os.path.abspath(__file__))
+RECIPES_DIR = os.path.join(_HERE, "recipes")
+SITE_DIR = _HERE
 
 # GitHub repo for giscus comments
 GISCUS_REPO = "lunatech2022/cookbook"

@@ -14,6 +14,12 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "breakfast", "high-fiber", "kid-friendly", "quick", "under-15", "vegetarian"],
     ingredients: ["almond", "berries", "butter", "chia", "cinnamon", "honey", "maple", "mixed", "oats", "peanut", "pinch", "rolled", "salt", "seeds", "syrup", "water"]
   },
+  'breakfast-quesadillas': {
+    name: 'Breakfast Quesadillas',
+    category: 'breakfast',
+    tags: ["breakfast", "high-fiber", "high-protein", "nut-free", "under-30"],
+    ingredients: ["arge", "avoided", "black", "breakfast", "cheese", "chicken", "chopped", "contains", "cooked", "cottage", "egg", "foods", "guacamole", "kosher", "optional", "ounce", "ounces", "partskim", "pepper", "profile", "salsa", "salt", "sausage", "scallions", "substitute", "tablespoons", "taste", "tbsps", "teaspoon", "tortilla", "tortillas", "undetermined", "wheat", "whites", "whole", "your"]
+  },
   'french-toast-sticks': {
     name: 'French Toast Sticks',
     category: 'breakfast',
@@ -26,6 +32,12 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "breakfast", "high-protein", "kid-friendly", "no-cook", "quick", "under-15", "vegetarian"],
     ingredients: ["berries", "chia", "extract", "flaxseed", "fresh", "frozen", "granola", "greek", "ground", "honey", "maple", "plain", "seeds", "syrup", "vanilla", "yogurt"]
   },
+  'high-protein-enchilada-eggs': {
+    name: 'High-Protein Enchilada Eggs',
+    category: 'breakfast',
+    tags: ["breakfast", "high-fiber", "high-protein", "nut-free", "quick", "under-15", "vegetarian"],
+    ingredients: ["adobo", "american", "avocado", "cheddar", "cheese", "egg", "enchilada", "homemade", "optional", "sauce", "scallion", "seasoning", "substitute", "tablespoons", "teaspoon", "whites"]
+  },
   'lemon-blueberry-overnight-oats-simple': {
     name: 'Lemon Blueberry Overnight Oats (Simple)',
     category: 'breakfast',
@@ -37,6 +49,12 @@ const RECIPE_TAGS = {
     category: 'breakfast',
     tags: ["batch-friendly", "breakfast", "high-fiber", "high-protein", "kid-friendly", "no-cook", "nutritionist", "quick", "under-15", "vegetarian"],
     ingredients: ["almond", "blueberries", "chia", "cinnamon", "extract", "greek", "lemon", "milk", "oats", "pinch", "plain", "powder", "protein", "rolled", "scoop", "seeds", "unsweetened", "vanilla", "yogurt", "zest"]
+  },
+  'mushroom-spinach-scrambled-eggs': {
+    name: 'Mushroom-Spinach Scrambled Eggs',
+    category: 'breakfast',
+    tags: ["breakfast", "high-protein", "nut-free", "quick", "under-15", "vegetarian"],
+    ingredients: ["arges", "avocado", "baby", "black", "cheese", "cups", "egg", "eggs", "fresh", "kale", "kosher", "mushroom", "mushrooms", "oil", "olive", "onions", "optional", "other", "pepper", "salt", "sliced", "spinach", "substitute", "tablespoon", "tablespoons", "teaspoon", "thin", "variety", "water", "whites"]
   },
   'oatmeal-sprinkles': {
     name: 'Oatmeal with Superhero Sprinkles',
@@ -56,11 +74,59 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "breakfast", "high-fiber", "high-protein", "kid-friendly", "nutritionist", "quick", "under-15"],
     ingredients: ["arge", "avocado", "breast", "cumin", "egg", "eggs", "garlic", "handful", "paprika", "pinch", "powder", "salsa", "smoked", "spinach", "tortilla", "turkey", "wheat", "whites", "whole"]
   },
+  'air-fryer-chicken-tenders': {
+    name: 'Air Fryer Chicken Tenders',
+    category: 'dinner',
+    tags: ["dinner", "high-fiber", "high-protein", "nut-free", "over-30", "vegetarian"],
+    ingredients: ["arges", "avocado", "black", "bread", "chicken", "crumbs", "each", "egg", "eggs", "kosher", "lemon", "oil", "olive", "optional", "panko", "pepper", "pounds", "salt", "seasoned", "spray", "substitute", "tablespoon", "teaspoon", "tenders", "wedges", "whites"]
+  },
   'broccoli-pesto-pasta': {
     name: 'Broccoli Pesto Pasta',
     category: 'dinner',
     tags: ["batch-friendly", "dinner", "high-fiber", "kid-friendly", "nut-free", "under-30", "vegetarian"],
     ingredients: ["beans", "black", "breast", "broccoli", "cheese", "cherry", "chicken", "cooked", "cooking", "extra", "florets", "fresh", "garlic", "grated", "juice", "lemon", "oil", "olive", "parmesan", "pasta", "pepper", "quarts", "salt", "serving", "spinach", "tomatoes", "water", "white"]
+  },
+  'buffalo-chicken-rice-bowls': {
+    name: 'Buffalo Chicken Rice Bowls',
+    category: 'dinner',
+    tags: ["dinner", "gluten-free", "high-fiber", "high-protein", "nut-free", "under-30"],
+    ingredients: ["avocado", "beans", "black", "boneless", "breasts", "buffalo", "canned", "canola", "cheese", "chicken", "chopped", "cumin", "diced", "kosher", "mozzarella", "oil", "olive", "onion", "optional", "paprika", "partskim", "pound", "salt", "sauce", "scallions", "shredded", "skinless", "sodium", "substitute", "tablespoons", "teaspoon"]
+  },
+  'cheesy-stuffed-chicken-breast-with-zucchini': {
+    name: 'Cheesy Stuffed Chicken Breast with Zucchini',
+    category: 'dinner',
+    tags: ["dinner", "high-protein", "nut-free", "under-30"],
+    ingredients: ["american", "avocado", "boneless", "cayenne", "cheddar", "garlic", "grated", "kosher", "less", "oil", "olive", "onion", "optional", "ounces", "paprika", "pepper", "powder", "salt", "sharp", "spray", "squeezed", "substitute", "tablespoon", "teaspoon", "toothpicks", "zucchini"]
+  },
+  'chicken-pesto-bake': {
+    name: 'Chicken Pesto Bake',
+    category: 'dinner',
+    tags: ["dinner", "high-protein", "nut-free", "under-30"],
+    ingredients: ["blend", "boneless", "cheese", "fresh", "grated", "italian", "kosher", "medium", "mozzarella", "optional", "parmesan", "pecorino", "pepper", "pesto", "pound", "salt", "sauce", "shredded", "substitute", "tablespoon", "tablespoons", "teaspoon", "teaspoons", "tomatoes", "total"]
+  },
+  'chicken-satay-bowl': {
+    name: 'Chicken Satay Bowl',
+    category: 'dinner',
+    tags: ["dinner", "high-protein", "under-30"],
+    ingredients: ["almond", "bell", "black", "breast", "broccoli", "broth", "butter", "cauliflower", "chicken", "chopped", "chunks", "coconut", "curry", "florets", "ground", "into", "jasmine", "light", "milk", "onions", "optional", "paste", "peanut", "pepper", "peppers", "rams", "rice", "sauce", "sodium", "sriracha", "substitute", "tablespoon", "tablespoons", "teaspoon", "white"]
+  },
+  'chicken-shawarma-sheet-pan-dinner': {
+    name: 'Chicken Shawarma Sheet Pan Dinner',
+    category: 'dinner',
+    tags: ["dinner", "high-fiber", "high-protein", "nut-free", "over-30"],
+    ingredients: ["area", "avocado", "bell", "boneless", "carrots", "chicken", "cinnamon", "cumin", "drained", "dried", "extra", "flakes", "garlic", "ground", "inch", "into", "kosher", "oil", "olive", "onion", "optional", "oregano", "paprika", "peeled", "pepper", "pieces", "pounds", "powder", "salt", "season", "skinless", "small", "smoked", "substitute", "tablespoon", "teaspoon", "teaspoons", "thighs", "tzatziki", "virgin", "your"]
+  },
+  'citrus-ginger-chicken-stir-fry': {
+    name: 'Citrus Ginger Chicken Stir Fry',
+    category: 'dinner',
+    tags: ["dinner", "nut-free", "over-30"],
+    ingredients: ["asparagus", "bell", "breast", "broccoli", "brown", "bunch", "chicken", "chopped", "chunks", "dash", "into", "oil", "olive", "optional", "other", "pepper", "pound", "rice", "salt", "sliced", "stir", "substitute", "teaspoons", "variety", "yellow"]
+  },
+  'ground-turkey-taco': {
+    name: 'Ground Turkey Taco',
+    category: 'dinner',
+    tags: ["dinner", "high-fiber", "high-protein", "nut-free", "over-30"],
+    ingredients: ["bell", "canned", "cheese", "corn", "cups", "gallo", "garlic", "ground", "iceberg", "lean", "lettuce", "minced", "onion", "optional", "pepper", "pico", "pound", "sauce", "seasoning", "shredded", "small", "tablespoons", "taco", "tomato", "toppings", "tortillas", "turkey", "water"]
   },
   'hidden-veggie-mac-cheese': {
     name: 'Hidden Veggie Mac & Cheese',
@@ -80,11 +146,29 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "budget-friendly", "dinner", "high-fiber", "high-protein", "over-30", "vegan"],
     ingredients: ["baby", "broth", "brown", "cayenne", "cilantro", "coconut", "cooked", "cumin", "curry", "diced", "dried", "fresh", "garlic", "ginger", "green", "lentils", "lowsodium", "medium", "milk", "oil", "olive", "onion", "powder", "rice", "salt", "spinach", "tomatoes", "turmeric", "vegetable", "yellow"]
   },
+  'loaded-nachos-with-turkey': {
+    name: 'Loaded Nachos with Turkey',
+    category: 'dinner',
+    tags: ["dinner", "high-protein", "nut-free", "under-30"],
+    ingredients: ["baked", "black", "blend", "breast", "cheese", "chips", "chopped", "cilantro", "coriander", "cream", "cumin", "cups", "dried", "fresh", "gallo", "garlic", "greek", "ground", "jalapeo", "kosher", "lean", "light", "mexican", "optional", "ounces", "pepper", "pico", "plain", "powder", "reduced", "salt", "sour", "substitute", "teaspoon", "tortilla", "turkey", "yogurt"]
+  },
   'mini-veggie-pasta': {
     name: 'Mini Veggie Pasta with Cheese Sauce',
     category: 'dinner',
     tags: ["batch-friendly", "dinner", "high-fiber", "kid-friendly", "under-30", "vegetarian"],
     ingredients: ["black", "breadcrumbs", "butter", "butternut", "cauliflower", "cheddar", "cheese", "chopped", "crackers", "cream", "crushed", "extra", "florets", "garlic", "milk", "mini", "nutmeg", "onion", "optional", "parsley", "pasta", "pepper", "potato", "powder", "quarts", "salt", "shapes", "shredded", "squash", "sweet", "water", "wholegrain"]
+  },
+  'one-pot-chicken-fajita-pasta': {
+    name: 'One-Pot Chicken Fajita Pasta',
+    category: 'dinner',
+    tags: ["dinner", "high-fiber", "high-protein", "nut-free", "under-30"],
+    ingredients: ["arge", "avocado", "bell", "bitesized", "boneless", "broth", "chicken", "chiles", "chili", "chopped", "cilantro", "coriander", "cream", "cumin", "diced", "dried", "garlic", "greek", "green", "ground", "into", "kosher", "lesssodium", "light", "mild", "oil", "olive", "onion", "optional", "ounces", "paprika", "pasta", "pepper", "pieces", "plain", "pound", "powder", "rotel", "salt", "scallion", "sour", "substitute", "tablespoon", "teaspoon", "teaspoons", "tomatoes", "white", "yellow", "yogurt"]
+  },
+  'one-pot-chicken-orzo': {
+    name: 'One-Pot Chicken Orzo',
+    category: 'dinner',
+    tags: ["dinner", "high-protein", "nut-free", "over-30"],
+    ingredients: ["avocado", "basil", "broth", "chicken", "dried", "extra", "garlic", "grated", "kosher", "oil", "olive", "onion", "optional", "orzo", "paste", "pecorino", "romano", "salt", "substitute", "tablespoon", "tablespoons", "teaspoon", "thighs", "tomato", "uncooked", "virgin"]
   },
   'salmon-quinoa-bowl': {
     name: 'Salmon Quinoa Bowl',
@@ -110,6 +194,36 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "dinner", "high-protein", "kid-friendly", "nutritionist", "under-30"],
     ingredients: ["bell", "breast", "broccoli", "carrot", "chicken", "chili", "florets", "garlic", "ginger", "grated", "jasmine", "oil", "olive", "onions", "pepper", "reen", "rice", "sauce", "sweet", "vinegar"]
   },
+  'sweet-potato-black-bean-bowls': {
+    name: 'Sweet Potato Black Bean Bowls',
+    category: 'dinner',
+    tags: ["dinner", "gluten-free", "high-fiber", "high-protein", "nut-free", "over-30", "vegetarian"],
+    ingredients: ["adobo", "avocado", "beans", "black", "butternut", "chili", "chipotle", "cilantro", "cooked", "coriander", "cumin", "destemmed", "drained", "dried", "extravirgin", "fresh", "garlic", "greek", "ground", "juice", "leaves", "lime", "media", "oil", "olive", "onions", "optional", "ounces", "pepper", "pitted", "plain", "potatoes", "pound", "powder", "quickpickled", "quinoa", "rinsed", "sauce", "sodium", "squash", "substitute", "sweet", "tablespoons", "teaspoon", "teaspoons", "yogurt"]
+  },
+  'taco-macaroni': {
+    name: 'Taco Macaroni',
+    category: 'dinner',
+    tags: ["dinner", "high-protein", "nut-free", "over-30"],
+    ingredients: ["avoided", "beef", "bell", "blend", "broth", "cans", "cheese", "chiles", "contains", "cups", "diced", "foods", "green", "lean", "macaroni", "mexican", "milk", "onion", "optional", "ounces", "pepper", "pound", "profile", "rotel", "seasoning", "substitute", "tablespoon", "taco", "taste", "tomatoes", "whole", "with", "yellow", "your"]
+  },
+  'turkey-cutlets-with-parmesan-crust': {
+    name: 'Turkey Cutlets with Parmesan Crust',
+    category: 'dinner',
+    tags: ["dinner", "high-protein", "nut-free", "under-30"],
+    ingredients: ["arges", "avocado", "breadcrumbs", "breast", "butter", "cheese", "each", "egg", "fresh", "kosher", "lemon", "oil", "olive", "optional", "parmesan", "pecorino", "pepper", "pound", "salt", "seasoned", "substitute", "tablespoon", "tablespoons", "teaspoon", "turkey", "wedges", "whites"]
+  },
+  'cheeseburger-crunch-wrap': {
+    name: 'Cheeseburger Crunch Wrap',
+    category: 'lunch',
+    tags: ["high-protein", "lunch", "nut-free", "under-30"],
+    ingredients: ["american", "avocado", "cheddar", "chips", "dill", "flour", "french", "fries", "fryer", "golden", "ground", "ketchup", "kosher", "lettuce", "mustard", "oil", "olive", "onion", "optional", "ounce", "ounces", "pickle", "regular", "roughly", "salt", "shredded", "spray", "substitute", "tablespoon", "tablespoons", "teaspoon", "tortillas", "turkey"]
+  },
+  'cheeseburger-salad': {
+    name: 'Cheeseburger Salad',
+    category: 'lunch',
+    tags: ["high-protein", "lunch", "nut-free", "under-30"],
+    ingredients: ["about", "avocado", "avoided", "beef", "black", "cheddar", "cheese", "cherry", "contains", "cubed", "dill", "foods", "freshly", "garlic", "ground", "juice", "ketchup", "kosher", "lean", "light", "mayonnaise", "mustard", "onion", "ounce", "ounces", "paprika", "pepper", "pickle", "pound", "powder", "profile", "reduced", "salad", "salt", "shredded", "small", "spears", "taste", "teaspoon", "teaspoons", "tomatoes", "your"]
+  },
   'chicken-caesar-pasta-salad': {
     name: 'Chicken Caesar Pasta Salad',
     category: 'lunch',
@@ -122,11 +236,29 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "high-fiber", "high-protein", "lunch", "under-30"],
     ingredients: ["avocado", "baby", "bagel", "bell", "black", "boneless", "breast", "carrots", "chicken", "everything", "garlic", "greek", "greens", "hemp", "highfiber", "hummus", "mixed", "oil", "olive", "onion", "optional", "pepper", "peppers", "powder", "ripe", "salt", "seasoning", "seeds", "shredded", "skinless", "sliced", "spinach", "thinly", "tortillas", "wheat", "whole", "yogurt"]
   },
+  'fez-grilled-chicken-sandwich': {
+    name: 'Fez Grilled Chicken Sandwich',
+    category: 'lunch',
+    tags: ["gluten-free", "high-fiber", "high-protein", "lunch", "nut-free", "under-30"],
+    ingredients: ["avocado", "breast", "buns", "chicken", "chili", "chopped", "cucumber", "cumin", "cups", "diced", "dried", "flattened", "free", "hamburger", "inch", "juiced", "lemon", "luten", "mayonnaise", "oil", "olive", "olives", "onion", "optional", "ounces", "parsley", "paste", "pepper", "pitted", "powder", "sliced", "substitute", "tablespoon", "teaspoon", "thick", "thinly", "tomato"]
+  },
   'greek-chicken-power-bowl': {
     name: 'Greek Chicken Power Bowl',
     category: 'lunch',
     tags: ["batch-friendly", "gluten-free", "high-fiber", "high-protein", "lunch", "nutritionist", "under-30"],
     ingredients: ["arlic", "breast", "cheese", "chicken", "clove", "cooked", "cucumber", "diced", "dried", "feta", "fresh", "garlic", "greek", "juice", "lemon", "oil", "olive", "oregano", "parsley", "pepper", "pinch", "plain", "powder", "quinoa", "salt", "yogurt"]
+  },
+  'greek-tofu-bowls': {
+    name: 'Greek Tofu Bowls',
+    category: 'lunch',
+    tags: ["high-protein", "lunch", "nut-free", "over-30", "vegetarian"],
+    ingredients: ["almond", "avocado", "bell", "black", "breadcrumbs", "cheese", "crumbled", "cucumbers", "dried", "extra", "extravirgin", "feta", "firm", "freshly", "garlic", "goat", "grape", "greek", "ground", "juice", "kosher", "lemon", "nonfat", "oil", "olive", "onion", "optional", "oregano", "ounce", "ounces", "panko", "pepper", "persian", "plain", "powder", "salt", "sliced", "small", "spray", "substitute", "tablespoon", "tablespoons", "teaspoon", "tofu", "tomatoes", "vinegar", "wine", "yogurt", "zest"]
+  },
+  'grilled-chicken-salad-with-strawberries-avocado-and-citrus-dressing': {
+    name: 'Grilled Chicken Salad with Strawberries, Avocado and Citrus Dressing',
+    category: 'lunch',
+    tags: ["high-fiber", "high-protein", "lunch", "under-30"],
+    ingredients: ["almonds", "avocado", "basil", "black", "blueberries", "boneless", "breast", "butter", "chicken", "chopped", "dried", "extravirgin", "fresh", "freshly", "garlic", "ground", "hass", "head", "kosher", "lemons", "lettuce", "media", "navel", "oil", "olive", "onion", "optional", "oranges", "ounces", "pepper", "salt", "skinless", "sliced", "slivered", "spray", "strawberries", "substitute", "tablespoon", "tablespoons", "teaspoon"]
   },
   'turkey-club-wrap-honey-dijon': {
     name: 'Turkey Club Wrap with Honey Dijon Slaw',
@@ -146,6 +278,18 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "kid-friendly", "quick", "refreshing", "shakes", "under-15", "vegetarian"],
     ingredients: ["banana", "chia", "cubes", "extract", "flaxseed", "frozen", "greek", "ground", "honey", "maple", "milk", "plain", "ripe", "seeds", "strawberries", "syrup", "vanilla", "yogurt"]
   },
+  'air-fryer-sweet-potato-fries': {
+    name: 'Air Fryer Sweet Potato Fries',
+    category: 'snacks',
+    tags: ["nut-free", "snacks", "under-30", "vegan", "vegetarian"],
+    ingredients: ["avocado", "black", "butternut", "fresh", "garlic", "kosher", "media", "oil", "olive", "optional", "paprika", "pepper", "potatoes", "powder", "salt", "squash", "substitute", "sweet", "teaspoon", "teaspoons"]
+  },
+  'baked-zucchini-fries': {
+    name: 'Baked Zucchini Fries',
+    category: 'snacks',
+    tags: ["kid-friendly", "nut-free", "snacks", "under-30", "vegetarian"],
+    ingredients: ["breadcrumbs", "cheese", "cooking", "egg", "grated", "italian", "optional", "parmesan", "pecorino", "seasoning", "spray", "substitute", "tablespoon", "teaspoon", "water", "whites", "zucchini"]
+  },
   'banana-peanut-butter': {
     name: 'Banana with Peanut Butter',
     category: 'snacks',
@@ -164,17 +308,23 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "high-protein", "kid-friendly", "no-cook", "nutritionist", "quick", "snacks", "under-15", "vegetarian"],
     ingredients: ["chips", "chocolate", "cocoa", "greek", "honey", "maple", "mini", "plain", "powder", "strawberries", "syrup", "yogurt"]
   },
-  'cookie-protein-balls': {
-    name: 'Chocolate Chip Cookie Protein Balls',
-    category: 'snacks',
-    tags: ["batch-friendly", "high-protein", "kid-friendly", "no-cook", "nutritionist", "snacks", "under-30", "vegetarian"],
-    ingredients: ["butter", "chips", "chocolate", "extract", "greek", "honey", "mini", "oats", "peanut", "plain", "powdered", "rolled", "vanilla", "water", "yogurt"]
-  },
   'edamame-hummus-cups': {
     name: 'Edamame Hummus Cups',
     category: 'snacks',
     tags: ["batch-friendly", "high-protein", "kid-friendly", "no-cook", "quick", "snacks", "under-15", "vegan", "vegetarian"],
     ingredients: ["arge", "bagel", "clove", "cucumber", "dill", "edamame", "everything", "fresh", "garlic", "garnish", "juice", "lemon", "oil", "olive", "parsley", "salt", "seasoning", "shelled", "small", "tahini", "water"]
+  },
+  'garlic-butter-mushrooms': {
+    name: 'Garlic Butter Mushrooms',
+    category: 'snacks',
+    tags: ["nut-free", "quick", "snacks", "under-15", "vegetarian"],
+    ingredients: ["arge", "avocado", "baby", "bella", "black", "bunch", "butter", "chopped", "cloves", "cremini", "dried", "extravirgin", "fresh", "freshly", "garlic", "ground", "italian", "kosher", "mushrooms", "oil", "olive", "optional", "parsley", "pepper", "pound", "salt", "substitute", "tablespoon", "tablespoons", "teaspoon", "unsalted"]
+  },
+  'garlic-string-beans': {
+    name: 'Garlic String Beans',
+    category: 'snacks',
+    tags: ["nut-free", "quick", "snacks", "under-15", "vegan", "vegetarian"],
+    ingredients: ["area", "avocado", "beans", "extra", "fresh", "garlic", "oil", "olive", "optional", "pepper", "pound", "salt", "season", "string", "substitute", "tablespoons", "teaspoon", "virgin", "your"]
   },
   'guacamole': {
     name: 'Classic Guacamole',
@@ -182,17 +332,53 @@ const RECIPE_TAGS = {
     tags: ["batch-friendly", "gluten-free", "kid-friendly", "no-cook", "quick", "snacks", "under-15", "vegan", "vegetarian"],
     ingredients: ["arge", "avocados", "chopped", "cilantro", "clove", "cumin", "diced", "finely", "fresh", "garlic", "ground", "hass", "jalapeo", "lime", "onion", "ripe", "roma", "salt", "small", "tomato", "white", "yellow"]
   },
+  'honey-glazed-carrots': {
+    name: 'Honey Glazed Carrots',
+    category: 'snacks',
+    tags: ["nut-free", "over-30", "snacks", "vegetarian"],
+    ingredients: ["area", "avocado", "black", "butter", "carrots", "dried", "emon", "extra", "fresh", "honey", "kosher", "oil", "olive", "optional", "parsley", "pepper", "pounds", "salt", "salted", "season", "substitute", "tablespoon", "tablespoons", "teaspoon", "teaspoons", "thyme", "virgin", "your", "zest"]
+  },
+  'mashed-cauliflower': {
+    name: 'Mashed Cauliflower',
+    category: 'snacks',
+    tags: ["nut-free", "snacks", "under-30", "vegetarian"],
+    ingredients: ["broccoli", "butter", "buttermilk", "cauliflower", "crushed", "garlic", "head", "medium", "optional", "pepper", "pinch", "salt", "salted", "substitute", "tablespoon"]
+  },
   'no-bake-energy-balls': {
     name: 'No-Bake Energy Balls',
     category: 'snacks',
     tags: ["batch-friendly", "kid-friendly", "no-cook", "snacks", "under-30", "vegetarian"],
     ingredients: ["butter", "chips", "chocolate", "chopped", "coconut", "creamy", "extract", "flaxseed", "ground", "honey", "mini", "natural", "oats", "peanut", "peanuts", "pinch", "rolled", "salt", "shredded", "unsweetened", "vanilla", "whole"]
   },
+  'pb-and-chocolate-bowl': {
+    name: 'PB & Chocolate Bowl',
+    category: 'snacks',
+    tags: ["high-fiber", "high-protein", "quick", "snacks", "under-15", "vegetarian"],
+    ingredients: ["banana", "butter", "chia", "chips", "chocolate", "cocoa", "extract", "greek", "ingredients", "meal", "mini", "peanut", "plain", "powder", "powdered", "rams", "seeds", "sliced", "tablespoon", "teaspoon", "unsweetened", "vanilla", "yogurt"]
+  },
+  'roasted-broccoli-and-cauliflower': {
+    name: 'Roasted Broccoli and Cauliflower',
+    category: 'snacks',
+    tags: ["nut-free", "over-30", "snacks", "vegetarian"],
+    ingredients: ["arge", "avocado", "breadcrumbs", "broccoli", "cauliflower", "cheese", "cloves", "extra", "florets", "garlic", "grated", "kosher", "oil", "olive", "optional", "parmesan", "pecorino", "pound", "salt", "seasoned", "substitute", "tablespoons", "teaspoon", "virgin"]
+  },
+  'strawberry-cheesecake-bowl': {
+    name: 'Strawberry Cheesecake Bowl',
+    category: 'snacks',
+    tags: ["high-fiber", "high-protein", "nut-free", "quick", "snacks", "under-15"],
+    ingredients: ["avoided", "blueberries", "chia", "chips", "chocolate", "contains", "cracker", "crackers", "crushed", "diced", "extract", "foods", "graham", "greek", "ingredients", "meal", "optional", "plain", "profile", "rams", "seeds", "strawberries", "substitute", "taste", "teaspoon", "vanilla", "white", "yogurt", "your"]
+  },
   'superhero-energy-bites': {
-    name: 'Superhero" Energy Bites',
+    name: 'Superhero Energy Bites',
     category: 'snacks',
     tags: ["batch-friendly", "high-fiber", "kid-friendly", "microbiome-booster", "no-cook", "quick", "snacks", "under-15", "vegetarian"],
     ingredients: ["butter", "chia", "chicory", "chips", "chocolate", "cinnamon", "cocoa", "coconut", "cranberries", "crushed", "dates", "dried", "extra", "flaxseed", "ground", "hemp", "honey", "maple", "mini", "oats", "orange", "pitted", "powder", "raisins", "rolled", "root", "seed", "seeds", "shredded", "sunflower", "syrup", "unsweetened", "zest"]
+  },
+  'sweet-potato-fries': {
+    name: 'Sweet Potato Fries',
+    category: 'snacks',
+    tags: ["high-fiber", "nut-free", "over-30", "snacks", "vegan", "vegetarian"],
+    ingredients: ["avocado", "butternut", "cooking", "dash", "oil", "olive", "optional", "paprika", "potato", "salt", "spray", "squash", "substitute", "sweet", "tablespoon", "teaspoon"]
   }
 };
 
